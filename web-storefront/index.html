@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Shopify Store</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.shopify.com/storefront/web-components.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <shopify-store
+      store-domain="https://lenssort.myshopify.com"
+      public-access-token="ea7a6d8bf91d18c986e18b400c2f8449"
+      country="US"
+      language="en"
+    >
+      <header class="bg-orange-600 text-center text-white">
+        My Shopify Store
+      </header>
+
+      <main class="grid">
+        <shopify-context type="product" handle="grid-verse-chair">
+          <shopify-cart id="cart"></shopify-cart>
+
+          <template class="hover:bg-amber-200">
+            <nav class="flex justify-end px-4">
+              <button
+                onclick="getElementById('cart').addLine(event).showModal()"
+              >
+                View cart
+              </button>
+            </nav>
+            <div class="card hover:bg-amber-200 transition rounded-xl p-4">
+              <shopify-media
+                width="200"
+                height="300"
+                query="product.featuredImage"
+              ></shopify-media>
+              <h2>
+                <shopify-data query="product.title"></shopify-data>
+              </h2>
+
+              <p>
+                <shopify-money
+                  format="money_with_currency"
+                  query="product.selectedOrFirstAvailableVariant.price"
+                ></shopify-money>
+              </p>
+              <button
+                class="bg-sky-500/50 hover:bg-fuchsia-500 px-6 py-2 rounded"
+                onclick="getElementById('cart').addLine(event).showModal()"
+              >
+                Add to cart
+              </button>
+            </div>
+          </template>
+        </shopify-context>
+        <div class="collection">
+          <shopify-list-context type="product" query="products" first="4">
+            <template>
+              <div class="card">
+                <shopify-media
+                  width="200"
+                  height="300"
+                  query="product.featuredImage"
+                ></shopify-media>
+                <h2>
+                  <shopify-data query="product.title"></shopify-data>
+                </h2>
+
+                <p>
+                  <shopify-money
+                    format="money_with_currency"
+                    query="product.selectedOrFirstAvailableVariant.price"
+                  ></shopify-money>
+                </p>
+              </div>
+            </template>
+          </shopify-list-context>
+        </div>
+      </main>
+    </shopify-store>
+  </body>
+</html>

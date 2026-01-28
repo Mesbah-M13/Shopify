@@ -1,0 +1,6 @@
+.card {
+  width: clamp(300px, 50%, 600px);
+}
+.collection {
+  display: flex;
+}
