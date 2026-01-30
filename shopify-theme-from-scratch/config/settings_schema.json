@@ -1,0 +1,11 @@
+{
+  {
+    "name":"theme_info",
+    "theme_name":"Theme from scratch",
+    "theme_author":"m.himel",
+    "theme_version":"1.0.0",
+    "theme_description":"A custom theme from scratch for Shopify",
+    "theme_documentation_url":"https://github.com/Shopify/cli",
+    "theme_support_url":"https://github.com/Shopify/cli/issues",
+  }
+}
