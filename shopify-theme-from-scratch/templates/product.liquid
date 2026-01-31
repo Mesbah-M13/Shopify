@@ -7,11 +7,9 @@
   <div class="product-details">
     <h1 class="product-title">{{ product.title }}</h1>
     <p class="product-price">{{ product.price|money }}</p>
-    <form method="post" action="/cart/add">
-      <input type="hidden" name="id" value={{ product.selected_or_first_available_variant.id }}>
+{%from 'product',product%}      <input type="hidden" name="id" value={{ product.selected_or_first_available_variant.id }}>
       <button type="submit" class="add-to-cart-btn">Add to Cart</button>
-    </form>
-    <p class="product-price">{{product.description}} </p>
+{% endform %}    <p class="product-price">{{product.description}} </p>
   </div>
 </div>
 
